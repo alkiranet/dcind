@@ -14,7 +14,7 @@ for base_image in ${BASE_IMAGES[*]}; do
     image_name=${splitted_image_repo[${#splitted_image_repo[@]}-1]}
 
     echo "building dcind image for base image ${base_image}"
-    docker build . -t dcind-${image_name} --build-arg BASE_IMAGE=${base_image}
+    docker build . -t dcind-${image_name}:${version} --build-arg BASE_IMAGE=${base_image}
     if [ $? -ne 0 ]; then
         echo "failed to  build dcind image for base image ${base_image}"
         exit 1
